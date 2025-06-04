@@ -1,0 +1,36 @@
+# Device control functions
+# ================================
+def open_door():
+    print("Opening door...")
+    speak("Opening door")
+    door_motor.forward()
+    while not open_limit.is_pressed:
+        sleep(0.1)
+    door_motor.stop()
+    print("Door is fully open.")
+    speak("Door is fully open")
+
+
+def close_door():
+    print("Closing door...")
+    speak("Closing door")
+    door_motor.backward()
+    while not close_limit.is_pressed:
+        sleep(0.1)
+    door_motor.stop()
+    print("Door is fully closed.")
+    speak("Door is fully closed")
+
+
+def bulbs_on():
+    print("Turning bulbs ON...")
+    speak("Turning bulbs on")
+    bulb1.on()
+    bulb2.on()
+
+
+def bulbs_off():
+    print("Turning bulbs OFF...")
+    speak("Turning bulbs off")
+    bulb1.off()
+    bulb2.off()

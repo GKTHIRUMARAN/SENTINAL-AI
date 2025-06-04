@@ -1,0 +1,9 @@
+# GPIO DEVICE DEFINITIONS
+
+bulb1 = LED(15)
+bulb2 = LED(18)
+door_motor = Motor(forward=27, backward=22)
+open_limit = Button(23, pull_up=True)
+close_limit = Button(24, pull_up=True)
+pir = MotionSensor(25)
+door_open_button = Button(12, pull_up=True)

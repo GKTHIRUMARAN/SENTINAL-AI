@@ -1,0 +1,9 @@
+# Text-to-Speech (Voice Feedback)
+
+def speak(text):
+    try:
+        subprocess.run(['espeak', text], check=True)
+    except FileNotFoundError:
+        print(f"[TTS missing] {text}")
+    except subprocess.CalledProcessError as e:
+        print(f"Error speaking text: {e}")

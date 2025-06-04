@@ -1,0 +1,24 @@
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: python add_face.py <name>")
+        sys.exit(1)
+    name = sys.argv[1]
+
+    # Create the face_db directory if it does not exist
+    face_db_dir = "face_db"
+    if not os.path.exists(face_db_dir):
+        os.makedirs(face_db_dir)
+
+    # We will capture up to 20 face images for this user.
+    count = 0
+    max_images = 20
+
+    # Load Haar cascade classifier for frontal face detection.
+    # cascade_path = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
+    cascade_path = "haarcascade_frontalface_default.xml"
+    face_cascade = cv2.CascadeClassifier(cascade_path)
+    if face_cascade.empty():
+        print("Error loading Haar cascade classifier from", cascade_path)
+        sys.exit(1)
+    else:
+        print("Haar cascade loaded successfully.")

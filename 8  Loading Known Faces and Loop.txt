@@ -1,0 +1,126 @@
+# Face database loader
+# ================================
+def load_known_faces(directory="face_db"):
+    if not os.path.isdir(directory):
+        print(f"Face database '{directory}' missing. Exiting.")
+        sys.exit(1)
+    encodings = []
+    names = []
+    for fname in os.listdir(directory):
+        if not fname.lower().endswith(('.jpg', '.png')):
+            continue
+        name = fname.split("_")[0]
+        if name in names:
+            continue
+        path = os.path.join(directory, fname)
+        img = face_recognition.load_image_file(path)
+        face_encs = face_recognition.face_encodings(img)
+        if face_encs:
+            names.append(name)
+            encodings.append(face_encs[0])
+            print(f"Loaded face for {name}")
+    if not encodings:
+        print("No faces loaded. Exiting.")
+        sys.exit(1)
+    print(f"Total faces loaded: {len(names)}")
+    return encodings, names
+
+# ================================
+# Main Face-Control Logic
+# ================================
+def face_control_loop(known_face_encodings, known_face_names, cascade):
+    cap = cv2.VideoCapture(0)
+    if not cap.isOpened():
+        print("Cannot open webcam. Exiting.")
+        sys.exit(1)
+    print("Camera feed started. Press 'q' to exit.")
+
+    last_motion = time.time()
+    bulbs_are_on = False
+    guest_present = False
+    no_face_start = None
+
+    try:
+        while True:
+            # Manual door open: triggers only once
+            if door_open_button.is_pressed:
+                open_door()
+                sleep(30)
+                close_door()
+
+            # PIR inactivity shutdown (always active)
+            if pir.motion_detected:
+                last_motion = time.time()
+            if bulbs_are_on and (time.time() - last_motion > 120):
+                bulbs_off()
+                bulbs_are_on = False
+
+            # Capture and display frame
+            ret, frame = cap.read()
+            if not ret:
+                continue
+            cv2.imshow("Face Control", frame)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                print("Exit key pressed. Stopping loop.")
+                break
+
+            # Detect and recognize face
+            small = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
+            gray = cv2.cvtColor(small, cv2.COLOR_BGR2GRAY)
+            faces = cascade.detectMultiScale(gray, 1.3, 5)
+
+            recognized_name = None
+            if len(faces) > 0:
+                no_face_start = None
+                x, y, w, h = faces[0]
+                loc = (y*2, (x+w)*2, (y+h)*2, x*2)
+                encs = face_recognition.face_encodings(frame, [loc])
+                if len(encs) > 0:
+                    matches = face_recognition.compare_faces(known_face_encodings, encs[0], tolerance=0.5)
+                    dists = face_recognition.face_distance(known_face_encodings, encs[0])
+                    idx = int(np.argmin(dists))
+                    if matches[idx] and not guest_present:
+                        recognized_name = known_face_names[idx]
+                        guest_present = True
+            else:
+                if guest_present and no_face_start is None:
+                    no_face_start = time.time()
+                if guest_present and no_face_start and time.time() - no_face_start > 5:
+                    guest_present = False
+                    no_face_start = None
+
+            # Trigger actions on new recognition
+            if recognized_name:
+                print(f"Greeting Mr. {recognized_name}")
+                speak(f"Welcome Mr. {recognized_name}")
+                open_door()
+                bulbs_on()
+                bulbs_are_on = True
+
+                sleep(30)
+                close_door()
+
+    except Exception as e:
+        print(f"Error in face_control_loop: {e}")
+    finally:
+        cap.release()
+        cv2.destroyAllWindows()
+        bulbs_off()
+
+# ================================
+# Runner with initialization
+# ================================
+def main():
+    known_face_encodings, known_face_names = load_known_faces()
+    cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+    if cascade.empty():
+        print("Failed to load Haar cascade. Exiting.")
+        sys.exit(1)
+
+    while True:
+        face_control_loop(known_face_encodings, known_face_names, cascade)
+        print("Restarting face control loop in 5s...")
+        sleep(5)
+
+if __name__ == "__main__":
+    main()
