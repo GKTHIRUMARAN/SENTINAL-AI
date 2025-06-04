@@ -1,0 +1,25 @@
+Explanation:
+1. add_face.py: Building Your Face Database
+	1.1. Shebang and Imports
+	1.2. Entry Point and Argument Parsing
+	1.3. Preparing the Storage Directory
+	1.4. Capture Settings
+	1.5. Loading the Haar Cascade
+	1.6. Opening the Webcam
+	1.7. Main Capture Loop
+		1.7.1. Speeding Up Detection
+		1.7.2. Overlaying Status Text
+		1.7.3. Handling No Face vs Face Detected Cases
+		1.7.4. Display and Early Quit
+	1.8. Cleanup
+
+2. face_control.py: Automated Door & Lighting via Face Recognition
+	2.1. Imports & GPIO 
+	2.2. Text to Speech Helper
+	2.3. Device Control Routines
+	2.4. Loading Known Faces
+	2.5. The Recognition Loop
+		2.5.1. Infinite Main While
+		2.5.2. Face Detection + Recognition
+		2.5.3. Handling Departures
+	2.6. Graceful Shutdown & Loop Restart
