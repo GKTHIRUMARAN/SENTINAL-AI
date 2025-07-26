@@ -53,7 +53,5 @@ Future Enhancements
 Developers:
 
 Thirumaran GK, Vishnusarathi V, Giriprasath S
-
 B.Tech - Artificial Intelligence & Data Science
-
 [LinkedIn--https://www.linkedin.com/in/thirumarangk-ai]
