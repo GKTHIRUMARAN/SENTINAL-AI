@@ -1,12 +1,59 @@
 # SENTINAL-AI
 
 Automated Swing Door System with Smart Lighting Control
-* This project is an automated swing door system enhanced with presence detection and smart lighting control for improved convenience and energy efficiency. It uses a combination of face recognition (OpenCV + face_recognition) and PIR sensors to detect a person approaching the door. When a person is recognized entering, the system:
-* Automatically opens the door using a power window motor with a string-type linkage arm.
-* Turns on the light to illuminate the area.
-* Closes the door automatically using an online door closer.
-* When the person leaves:
-* The door is opened manually.
-* The system detects departure using the PIR sensor.
-* The light is turned off automatically as the door closes.
-The entire system is controlled using GPIO-based devices and Python, offering a seamless integration of automation and intelligent control.
+
+A Raspberry Pi–powered automation system that intelligently controls a swing door and lighting using face recognition and presence detection. Designed for convenience, security, and energy efficiency.
+
+Overview
+SENTINEL-AI* combines computer vision, PIR sensors, and motor control to automate door opening and lighting systems:
+- Detects people using a PIR motion sensor and face recognition.
+- Automatically opens and closes a swing door using a swing motor.
+- Turns lights ON/OFF based on presence and movement.
+- Uses Python and GPIO control on Raspberry Pi.
+
+Features
+
+- Face recognition using `face_recognition` + OpenCV  
+- Motorized swing door with linkage arm mechanism  
+- PIR sensor for presence detection  
+- Smart lighting automation  
+- Intelligent control logic for entry/exit  
+- Python + Raspberry Pi GPIO integration  
+
+Technologies & Tools Used
+
+- Python
+- OpenCV
+- face_recognition lib
+- RPi.GPIO pins
+- PIR Sensor
+- Power Window Motor & Limiter switchs
+- Relay Module & Smps
+- Raspberry Pi 5
+
+---
+
+## 📸 System Flow
+
+1. Entry:
+   - PIR sensor detects movement.
+   - Face recognition validates identity.
+   - Door opens automatically.
+   - Light turns on.
+
+2. Exit:
+   - Door opened manually.
+   - PIR detects no presence.
+   - Light turns off automatically.
+
+Future Enhancements
+
+- Voice-controlled door access  
+- Web UI for managing recognized faces  
+- Unknown face detection alerts  
+- Ultrasonic sensor for better presence tracking  
+
+Developers
+Thirumaran GK, Vishnusarathi V, Giriprasath S 
+B.Tech - Artificial Intelligence & Data Science  
+[LinkedIn--https://www.linkedin.com/in/thirumarangk-ai]
