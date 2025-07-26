@@ -51,6 +51,6 @@ Future Enhancements
 - Ultrasonic sensor for better presence tracking  
 
 Developers
-Thirumaran GK, Vishnusarathi V, Giriprasath S 
-B.Tech - Artificial Intelligence & Data Science  
+Thirumaran GK, Vishnusarathi V, Giriprasath S
+B.Tech - Artificial Intelligence & Data Science
 [LinkedIn--https://www.linkedin.com/in/thirumarangk-ai]
