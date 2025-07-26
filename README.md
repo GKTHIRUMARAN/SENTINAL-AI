@@ -1,7 +1,6 @@
-#SENTINAL-AI
+SENTINAL-AI
 
 Automated Swing Door System with Smart Lighting Control
-
 A Raspberry Pi–powered automation system that intelligently controls a swing door and lighting using face recognition and presence detection. Designed for convenience, security, and energy efficiency.
 
 Overview
