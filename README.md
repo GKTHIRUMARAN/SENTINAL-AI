@@ -50,7 +50,10 @@ Future Enhancements
 - Unknown face detection alerts  
 - Ultrasonic sensor for better presence tracking  
 
-Developers
+Developers:
+
 Thirumaran GK, Vishnusarathi V, Giriprasath S
+
 B.Tech - Artificial Intelligence & Data Science
+
 [LinkedIn--https://www.linkedin.com/in/thirumarangk-ai]
