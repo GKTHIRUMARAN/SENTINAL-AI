@@ -1,4 +1,4 @@
-SENTINAL-AI
+#SENTINAL-AI
 
 Automated Swing Door System with Smart Lighting Control
 
