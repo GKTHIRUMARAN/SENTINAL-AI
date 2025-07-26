@@ -5,6 +5,7 @@ Automated Swing Door System with Smart Lighting Control
 A Raspberry Pi–powered automation system that intelligently controls a swing door and lighting using face recognition and presence detection. Designed for convenience, security, and energy efficiency.
 
 Overview
+
 SENTINEL-AI* combines computer vision, PIR sensors, and motor control to automate door opening and lighting systems:
 - Detects people using a PIR motion sensor and face recognition.
 - Automatically opens and closes a swing door using a swing motor.
