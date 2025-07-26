@@ -1,4 +1,4 @@
-# SENTINAL-AI
+SENTINAL-AI
 
 Automated Swing Door System with Smart Lighting Control
 
@@ -31,16 +31,13 @@ Technologies & Tools Used
 - Relay Module & Smps
 - Raspberry Pi 5
 
----
-
-## 📸 System Flow
+System Flow
 
 1. Entry:
    - PIR sensor detects movement.
    - Face recognition validates identity.
    - Door opens automatically.
    - Light turns on.
-
 2. Exit:
    - Door opened manually.
    - PIR detects no presence.
