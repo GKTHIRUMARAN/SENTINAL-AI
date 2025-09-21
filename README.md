@@ -46,7 +46,7 @@ A Raspberry Pi–powered automation system that intelligently controls a swing d
 - Ultrasonic sensor for better presence tracking  
 
 # 👤 Author
-Thirumaran GK, Vishnusarathi V, Giriprasath S  
+**Thirumaran GK**, Vishnusarathi V, Giriprasath S  
 🎓 B.Tech Artificial Intelligence and Data Science\
 🌍 Coimbatore, Tamil Nadu, India\
 💼 Aspiring Data Scientist & Analyst | AIML Developer\
