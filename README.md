@@ -1,18 +1,16 @@
-SENTINAL-AI
+# SENTINAL-AI
 
-Automated Swing Door System with Smart Lighting Control
-A Raspberry Pi–powered automation system that intelligently controls a swing door and lighting using face recognition and presence detection. Designed for convenience, security, and energy efficiency.
+**Automated Swing Door System with Smart Lighting Control
+A Raspberry Pi–powered automation system that intelligently controls a swing door and lighting using face recognition and presence detection. Designed for convenience, security, and energy efficiency.**
 
-Overview
-
-SENTINEL-AI* combines computer vision, PIR sensors, and motor control to automate door opening and lighting systems:
+# Overview
+**SENTINEL-AI** combines computer vision, PIR sensors, and motor control to automate door opening and lighting systems:
 - Detects people using a PIR motion sensor and face recognition.
 - Automatically opens and closes a swing door using a swing motor.
 - Turns lights ON/OFF based on presence and movement.
 - Uses Python and GPIO control on Raspberry Pi.
 
-Features
-
+# Features
 - Face recognition using `face_recognition` + OpenCV  
 - Motorized swing door with linkage arm mechanism  
 - PIR sensor for presence detection  
@@ -20,8 +18,7 @@ Features
 - Intelligent control logic for entry/exit  
 - Python + Raspberry Pi GPIO integration  
 
-Technologies & Tools Used
-
+# Technologies & Tools Used
 - Python
 - OpenCV
 - face_recognition lib
@@ -31,8 +28,7 @@ Technologies & Tools Used
 - Relay Module & Smps
 - Raspberry Pi 5
 
-System Flow
-
+# System Flow
 1. Entry:
    - PIR sensor detects movement.
    - Face recognition validates identity.
@@ -43,15 +39,15 @@ System Flow
    - PIR detects no presence.
    - Light turns off automatically.
 
-Future Enhancements
-
+# Future Enhancements
 - Voice-controlled door access  
 - Web UI for managing recognized faces  
 - Unknown face detection alerts  
 - Ultrasonic sensor for better presence tracking  
 
-Developers:
-
-Thirumaran GK, Vishnusarathi V, Giriprasath S
-B.Tech - Artificial Intelligence & Data Science
-[LinkedIn--https://www.linkedin.com/in/thirumarangk-ai]
+# 👤 Author
+Thirumaran GK, Vishnusarathi V, Giriprasath S  
+🎓 B.Tech Artificial Intelligence and Data Science\
+🌍 Coimbatore, Tamil Nadu, India\
+💼 Aspiring Data Scientist & Analyst | AIML Developer\
+🔗 [Linkedin](https://www.linkedin.com/in/thirumarangk-ai) | [Porfolio](https://maranthiru180.wixsite.com/my-site)
